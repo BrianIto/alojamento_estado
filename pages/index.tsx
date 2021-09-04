@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import firebase from "firebase/compat/app"
 import "firebase/compat/database"
-import {Firebase} from "./firebase";
+import {Firebase} from "../src/firebase";
 
 export default function Home() {
 
