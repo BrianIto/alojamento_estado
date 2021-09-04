@@ -18,9 +18,13 @@ export default function Home() {
     const options = ["limpo", "sujo", "ocupado"];
 
     const [salas, setSalas] =
-        React.useState<Array<Banco>>(new Array(10)
-            .fill(0)
-            .map((_, index) => ({nome: (200 + index + 1) + "", estado: "limpo"})))
+        React.useState<Array<Banco>>([])
+
+    // const setToDatabase = async (Firebase) => {
+    //     for (let sala of salas) {
+    //         await Firebase.database().ref("/salas/"+sala.nome).set(sala);
+    //     }
+    // }
 
     const transformObjectInArray = (obj) => {
         let arr = []
