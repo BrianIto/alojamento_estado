@@ -20,12 +20,6 @@ export default function Home() {
     const [salas, setSalas] =
         React.useState<Array<Banco>>([])
 
-    // const setToDatabase = async (Firebase) => {
-    //     for (let sala of salas) {
-    //         await Firebase.database().ref("/salas/"+sala.nome).set(sala);
-    //     }
-    // }
-
     const transformObjectInArray = (obj) => {
         let arr = []
         for (let key in obj)
@@ -54,11 +48,18 @@ export default function Home() {
                 <th>Estado</th>
                 </thead>
                 <tbody>
-                {salas.map(sala => (<tr key={sala.nome}>
-                    <td>{sala.nome}</td>
-                    <td>
+                {salas.map(sala => (<tr key={sala.nome} >
+                    <td style={{borderBottom: "1px solid #F0F0F0", paddingBottom: 5}}>{sala.nome}</td>
+                    <td style={{paddingBottom: 5, borderBottom: "1px solid #F0F0F0", }}>
                         <form>
-                            <select onChange={e => {
+                            <select
+                                style={{backgroundColor:
+                                        sala.estado === "sujo" ? "red" :
+                                            (sala.estado === "ocupado" ? "yellow" : "green"),
+                                        padding: "5px 20px",
+                                        borderRadius: "3px",
+                                }}
+                                onChange={e => {
                                 const value = e.target.value;
                                 Firebase
                                     .database()
